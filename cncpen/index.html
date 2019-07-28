@@ -1,14 +1,12 @@
 <html>
 <head><title>KHALIFA Cnc pen : main page</title></head>
 <body>
+ <div id="my_camera" type="hidden"></div>
 <script type="text/javascript" src="webcam.min.js"></script>
  <canvas id="mycanvas" width="580" height="1146" style="display: block; margin-left: auto; margin-right: auto;" onclick="clicked(event);" onmousedown="pressed(event);" ontouchstart="pressed(event);" onmouseup="stopall();" ontouchend="stopall();"></canvas>
  <script>
 var mycanvas = document.getElementById('mycanvas');
 context = mycanvas.getContext('2d');
-
-var camdiv = document.createElement("div");
-camdiv.id = "my_camera";
   
 base_image = new Image();
 base_image.src = 'cncpen_main.png';
