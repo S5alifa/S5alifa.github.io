@@ -1,6 +1,7 @@
 <html>
 <head><title>KHALIFA Cnc pen : main page</title></head>
 <body>
+ <div id="my_camera" style="visibility:hidden;"></div>
 <script type="text/javascript" src="webcam.min.js"></script>
  <canvas id="mycanvas" width="580" height="1146" style="display: block; margin-left: auto; margin-right: auto;" onclick="clicked(event);" onmousedown="pressed(event);" ontouchstart="pressed(event);" onmouseup="stopall();" ontouchend="stopall();"></canvas>
  <script>
@@ -146,9 +147,15 @@ function clicked(e) {
   image_format: 'jpeg',
   jpeg_quality: 90
  });
+   Webcam.attach( '#my_camera' );
   }
   if(inthebox(x,y,0.087,0.485,0.898,0.675)){
  Webcam.snap( function(data_uri) {
+  var img = new Image;
+img.onload = function(){
+  context.drawImage(img,0,0);
+};
+img.src = data_uri;
   console.log(data_uri);
   } );
   }
