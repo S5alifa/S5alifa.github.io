@@ -6,12 +6,7 @@
   <script>
 var mycanvas = document.getElementById('mycanvas');
 context = mycanvas.getContext('2d');
-Webcam.set({
-  width: 320,
-  height: 240,
-  image_format: 'jpeg',
-  jpeg_quality: 90
- });
+   
 base_image = new Image();
 base_image.src = 'cncpen_main.png';
 image1 = new Image();
@@ -136,6 +131,12 @@ function clicked(e) {
   if(inthebox(x,y,0.152,0.774,0.835,0.843)){wav_eqall.play();}
   if(inthebox(x,y,0.091,0.885,0.893,0.98)){
   stage = 1;
+  Webcam.set({
+    width: 320,
+    height: 240,
+    image_format: 'jpeg',
+    jpeg_quality: 90
+   });
   base_image.onload();
   }
   }else if(stage == 1){
