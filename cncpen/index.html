@@ -1,7 +1,7 @@
 <html>
 <head><title>KHALIFA Cnc pen : main page</title></head>
 <body>
- <div id="my_camera" style="display: none; margin-left: auto; margin-right: auto;" onclick="alert("ev");"></div>
+ <div id="my_camera" style="display: none; margin-left: auto; margin-right: auto;" onclick="alert('ev');"></div>
 <script type="text/javascript" src="webcam.min.js"></script>
  <canvas id="mycanvas" width="580" height="1146" style="display: block; margin-left: auto; margin-right: auto;" onclick="clicked(event);" onmousedown="pressed(event);" ontouchstart="pressed(event);" onmouseup="stopall();" ontouchend="stopall();"></canvas>
  <script>
@@ -37,7 +37,13 @@ if(stage == 0){
 context.drawImage(base_image, 0, 0,mycanvas.width,mycanvas.height);
 }else if(stage == 1){
 context.drawImage(image1, 0, 0,mycanvas.width,mycanvas.height);
-}
+}else if(stage == 2){
+ Webcam.set({
+  width: mycanvas.width,
+  height: mycanvas.height,
+  image_format: 'jpeg',
+  jpeg_quality: 90
+ });
 }
 
 window.addEventListener('resize', function(event){
@@ -141,6 +147,7 @@ function clicked(e) {
   base_image.onload();
   }
   if(inthebox(x,y,0.09,0.229,0.901,0.422)){
+   stage = 2;
  Webcam.set({
   width: mycanvas.width,
   height: mycanvas.height,
