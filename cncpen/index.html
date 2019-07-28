@@ -1,6 +1,7 @@
 <html>
 <head><title>KHALIFA Cnc pen : main page</title></head>
 <body>
+ <div id="my_camera"></div>
 <script type="text/javascript" src="webcam.min.js"></script>
  <canvas id="mycanvas" width="580" height="1146" style="display: block; margin-left: auto; margin-right: auto;" onclick="clicked(event);" onmousedown="pressed(event);" ontouchstart="pressed(event);" onmouseup="stopall();" ontouchend="stopall();"></canvas>
   <div id="my_camera" style="width:320px; height:240px;"></div>
@@ -132,13 +133,6 @@ function clicked(e) {
   if(inthebox(x,y,0.152,0.774,0.835,0.843)){wav_eqall.play();}
   if(inthebox(x,y,0.091,0.885,0.893,0.98)){
   stage = 1;
-  Webcam.set({
-    width: 320,
-    height: 240,
-    image_format: 'jpeg',
-    jpeg_quality: 90
-   });
-   Webcam.attach( '#my_camera' );
   base_image.onload();
   }
   }else if(stage == 1){
@@ -148,11 +142,17 @@ function clicked(e) {
   base_image.onload();
   }
   if(inthebox(x,y,0.09,0.229,0.901,0.422)){
-
+ Webcam.set({
+  width: 320,
+  height: 240,
+  image_format: 'jpeg',
+  jpeg_quality: 90
+ });
+ Webcam.attach( '#my_camera' );
   }
   if(inthebox(x,y,0.087,0.485,0.898,0.675)){
  Webcam.snap( function(data_uri) {
-  console.log(ata_uri);
+  console.log(data_uri);
   } );
   }
   if(inthebox(x,y,0.093,0.741,0.898,0.931)){alert('a3');}
