@@ -6,7 +6,10 @@
  <script>
 var mycanvas = document.getElementById('mycanvas');
 context = mycanvas.getContext('2d');
-   
+
+var camdiv = document.createElement("div");
+camdiv.id = "my_camera";
+  
 base_image = new Image();
 base_image.src = 'cncpen_main.png';
 image1 = new Image();
@@ -146,8 +149,6 @@ function clicked(e) {
   image_format: 'jpeg',
   jpeg_quality: 90
  });
-   var div = document.createElement("div");
-   div.id = "my_camera";
    Webcam.attach( '#my_camera' );
   }
   if(inthebox(x,y,0.087,0.485,0.898,0.675)){
