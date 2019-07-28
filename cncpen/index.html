@@ -39,8 +39,8 @@ context.drawImage(base_image, 0, 0,mycanvas.width,mycanvas.height);
 context.drawImage(image1, 0, 0,mycanvas.width,mycanvas.height);
 }else if(stage == 2){
  Webcam.set({
-  width: mycanvas.width,
-  height: mycanvas.height,
+  width: pw,
+  height: ph,
   image_format: 'jpeg',
   jpeg_quality: 90
  });
@@ -158,6 +158,7 @@ function clicked(e) {
    Webcam.attach( '#my_camera' );
    document.getElementById('mycanvas').style.display = "none";
    document.getElementById('my_camera').style.display = "block";
+   base_image.onload();
   }
   if(inthebox(x,y,0.087,0.485,0.898,0.675)){
  Webcam.snap( function(data_uri) {
